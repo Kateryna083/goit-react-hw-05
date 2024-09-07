@@ -5,6 +5,7 @@ import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import MoviesPage from "../../pages/MoviesPage/MoviesPage";
 
 import "./App.css";
+import css from "./Oooo.module.css";
 
 export default function App() {
   return (
