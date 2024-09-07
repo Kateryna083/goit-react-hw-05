@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { searchMovie } from "../../Authorization";
+import BackButton from "../../components/GoBack/GoBack";
 
 export default function MoviesPage() {
   const [query, setQuery] = useState("");
@@ -37,6 +38,8 @@ export default function MoviesPage() {
         <input type="text" name="query" placeholder="Search movies" />
         <button type="submit">Search</button>
       </form>
+
+      <BackButton />
 
       {movies.length > 0 && (
         <ul>

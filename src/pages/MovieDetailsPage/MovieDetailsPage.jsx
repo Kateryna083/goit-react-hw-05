@@ -3,6 +3,7 @@
 import { Outlet, useParams, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMovieDetail } from "../../Authorization";
+import BackButton from "../../components/GoBack/GoBack";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -28,6 +29,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+      <BackButton />
       {movie && (
         <div>
           <h1>{movie.title}</h1>
