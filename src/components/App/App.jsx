@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
 import Navigation from "../Navigation/Navigation";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import MoviesPage from "../../pages/MoviesPage/MoviesPage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "../MovieCast/MovieCast";
+import MovieReviews from "../MovieReviews/MovieReviews";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
-import "./App.css";
-import css from "./Oooo.module.css";
+// import css from "./App.module.css";
 
 export default function App() {
   return (
@@ -14,7 +16,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
-
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
