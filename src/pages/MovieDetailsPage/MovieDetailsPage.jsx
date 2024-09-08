@@ -44,9 +44,9 @@ export default function MovieDetailsPage() {
 
   return (
     <div>
-      <Link to={location.state || "/"}>
-        <button className={css.goBackBtn}>Go back</button>
-      </Link>
+      <button onClick={() => window.history.back()} className={css.goBackBtn}>
+        Go back
+      </button>
 
       {loading && (
         <div className={css.loader}>
