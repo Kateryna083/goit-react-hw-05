@@ -1,4 +1,4 @@
-import { Outlet, useParams, NavLink, useLocation } from "react-router-dom";
+import { Outlet, useParams, NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMovieDetail } from "../../Authorization";
 import clsx from "clsx";
@@ -13,10 +13,13 @@ export default function MovieDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   // const location = useLocation();
+  const navigate = useNavigate();
 
   const getClassName = (props) => {
     return clsx(css.link, props.isActive && css.isActive);
   };
+
+  const from = location.state?.from || "/";
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -36,9 +39,13 @@ export default function MovieDetailsPage() {
     fetchMovieDetails();
   }, [movieId]);
 
+  const handleGoBack = () => {
+    navigate(from);
+  };
+
   return (
     <div>
-      <button onClick={() => window.history.back()} className={css.goBackBtn}>
+      <button onClick={handleGoBack} className={css.goBackBtn}>
         Go back
       </button>
 
