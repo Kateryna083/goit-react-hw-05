@@ -13,9 +13,11 @@ const NotFoundPage = lazy(() =>
 const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
 const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 
+const Loading = () => <div>Loading...</div>;
+
 export default function App() {
   return (
-    <Suspense>
+    <Suspense fallback={<Loading />}>
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
