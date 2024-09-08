@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const accessKey = "2218e48bf59c52704334d796d79c406e";
+// const accessKey = "2218e48bf59c52704334d796d79c406e";
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 
 export async function getTrendingMovie() {

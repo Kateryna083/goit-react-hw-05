@@ -8,17 +8,19 @@ const getNavLinkClass = (props) => {
 
 export default function Navigation() {
   return (
-    <ul>
-      <li>
-        <NavLink to="/" className={getNavLinkClass}>
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/movies" className={getNavLinkClass}>
-          Movies
-        </NavLink>
-      </li>
-    </ul>
+    <header className={css.header}>
+      <ul className={css.navList}>
+        <li>
+          <NavLink to="/" className={getNavLinkClass}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/movies" className={getNavLinkClass}>
+            Movies
+          </NavLink>
+        </li>
+      </ul>
+    </header>
   );
 }
