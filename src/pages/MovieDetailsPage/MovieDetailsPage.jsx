@@ -1,10 +1,4 @@
-import {
-  Outlet,
-  useParams,
-  NavLink,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Outlet, useParams, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMovieDetail } from "../../Authorization";
 import clsx from "clsx";
@@ -18,7 +12,7 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const location = useLocation();
+  // const location = useLocation();
 
   const getClassName = (props) => {
     return clsx(css.link, props.isActive && css.isActive);
