@@ -1,5 +1,12 @@
-import { Outlet, useParams, NavLink, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {
+  Outlet,
+  useParams,
+  NavLink,
+  // useNavigate,
+  // useLocation,
+  Link,
+} from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { getMovieDetail } from "../../Authorization";
 import clsx from "clsx";
 import { Circles } from "react-loader-spinner";
@@ -13,13 +20,12 @@ export default function MovieDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   // const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const backLinkHref = useRef(location.state ?? "/movies");
 
   const getClassName = (props) => {
     return clsx(css.link, props.isActive && css.isActive);
   };
-
-  const from = location.state?.from || "/";
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -39,15 +45,11 @@ export default function MovieDetailsPage() {
     fetchMovieDetails();
   }, [movieId]);
 
-  const handleGoBack = () => {
-    navigate(from);
-  };
-
   return (
     <div>
-      <button onClick={handleGoBack} className={css.goBackBtn}>
-        Go back
-      </button>
+      <Link to={backLinkHref.current}>
+        <button className={css.goBackBtn}>Go back</button>
+      </Link>
 
       {loading && (
         <div className={css.loader}>
